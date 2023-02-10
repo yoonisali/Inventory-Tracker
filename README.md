@@ -1,3 +1,11 @@
+# _Jealous Jerseys_
+
+### _By: Yoonis Ali_
+
+#### _A react application that allows the user to add jerseys which they can view the name, price, date it was issued, and quantity. The user can view, add, update, and delete the jerseys._
+
+![Alt text](/src/images/plan.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
