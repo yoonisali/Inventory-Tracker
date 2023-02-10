@@ -19,7 +19,8 @@ class JerseyControl extends React.Component {
     if (this.state.selectedJersey !== null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedJersey: null
+        selectedJersey: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({
@@ -64,6 +65,13 @@ class JerseyControl extends React.Component {
     });
   }
 
+  handleSellJersey = (jersey) => {
+    jersey.quantity-= 1;
+    this.setState({
+      selectedJersey: jersey
+    });
+    } 
+
   render() {
     let currentlyVisableState = null;
     let buttonText = null;
@@ -79,7 +87,8 @@ class JerseyControl extends React.Component {
         <JerseyDetail
           jersey={this.state.selectedJersey} 
           onClickingEdit={this.handleEditClick}
-          onClickingDelete={this.handleDeletingJersey} />
+          onClickingDelete={this.handleDeletingJersey} 
+          onClickingSell = {this.handleSellJersey}/>
           buttonText = "Return to Jerseys List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisableState = <NewJerseyForm onNewJerseyCreation={this.handleAddingNewJerseyToList}/>;
