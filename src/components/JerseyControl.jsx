@@ -56,6 +56,14 @@ class JerseyControl extends React.Component {
           })
   }
 
+  handleDeletingJersey = (id) => {
+    const newMainJerseyList = this.state.mainJerseyList.filter(jersey => jersey.id !== id);
+    this.setState({
+      mainJerseyList: newMainJerseyList,
+      selectedJersey: null
+    });
+  }
+
   render() {
     let currentlyVisableState = null;
     let buttonText = null;
@@ -70,7 +78,8 @@ class JerseyControl extends React.Component {
       currentlyVisableState = 
         <JerseyDetail
           jersey={this.state.selectedJersey} 
-          onClickingEdit={this.handleEditClick} />
+          onClickingEdit={this.handleEditClick}
+          onClickingDelete={this.handleDeletingJersey} />
           buttonText = "Return to Jerseys List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisableState = <NewJerseyForm onNewJerseyCreation={this.handleAddingNewJerseyToList}/>;
