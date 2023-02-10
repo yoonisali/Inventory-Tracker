@@ -70,6 +70,9 @@ class JerseyControl extends React.Component {
     this.setState({
       selectedJersey: jersey
     });
+    // if(jersey.quantity === 0) {
+    //   return "Out of Stock!"
+    // }
     } 
 
   render() {

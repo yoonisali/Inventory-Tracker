@@ -14,7 +14,21 @@ code {
 
 #jersey:hover {
   background-color:peru;
-  width: 30%;
+  width: 320px;
+}
 
+#header {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#jersey {
+  height: 120px;
+  width: 320px;
+  border: solid 3px black;
+  margin-left: 39%;
+  margin-right: 50;
+  margin-top: 100px;
+  text-align: center;
 }
 

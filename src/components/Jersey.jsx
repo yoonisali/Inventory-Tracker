@@ -5,7 +5,7 @@ function Jersey (props) {
   return (
     <React.Fragment>
       <div id="jersey" onClick={() => props.whenJerseyClicked(props.id)}>
-        <h4>Name: {props.name} | {props.date} Edition</h4>
+        <h4>{props.name} | {props.date} Edition</h4>
         <h4>Price: ${props.price}</h4>
       </div>
 
