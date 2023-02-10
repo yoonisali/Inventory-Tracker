@@ -7,10 +7,13 @@ function JerseysList (props) {
     <React.Fragment>
       <div id="jersey-list">
       {props.jerseyList.map((jersey) => 
-        <Jersey name={jersey.name}
+        <Jersey 
+          whenJerseyClicked = { props.onJerseySelection }
+          name={jersey.name}
           price={jersey.price}
           quantity={jersey.quantity}
-          id={jersey.id} />
+          id={jersey.id} 
+          key={jersey.id} />
       )}
       </div>
 
@@ -19,7 +22,8 @@ function JerseysList (props) {
 }
 
 JerseysList.propTypes = {
-  jerseyList: PropTypes.array
+  jerseyList: PropTypes.array,
+  onJerseySelection: PropTypes.func
 }
 
 export default JerseysList;
