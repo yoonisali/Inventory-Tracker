@@ -11,6 +11,7 @@ function JerseysList (props) {
           whenJerseyClicked = { props.onJerseySelection }
           name={jersey.name}
           price={jersey.price}
+          date={jersey.date}
           quantity={jersey.quantity}
           id={jersey.id} 
           key={jersey.id} />

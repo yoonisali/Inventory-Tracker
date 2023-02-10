@@ -2,6 +2,7 @@ import React from "react";
 import NewJerseyForm from "./NewJerseyForm";
 import JerseysList from "./JerseysList";
 import JerseyDetail from "./JerseyDetail";
+import EditJerseyForm from "./EditJerseyForm"
 
 class JerseyControl extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class JerseyControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainJerseyList: [],
-      selectedJersey: null
+      selectedJersey: null,
+      editing: false
     };
   }
 
@@ -39,13 +41,36 @@ class JerseyControl extends React.Component {
     this.setState({ selectedJersey: selectedJersey });
   }
 
+  handleEditClick = () => {
+    this.setState({ editing: true });
+  }
+
+  handleEditingJerseyInList = (jerseyToEdit) => {
+    const editedMainJerseyList = this.state.mainJerseyList
+          .filter(jersey => jersey.id !== this.state.selectedJersey.id)
+          .concat(jerseyToEdit);
+          this.setState({
+            mainJerseyList: editedMainJerseyList,
+            editing: false,
+            selectedJersey: null
+          })
+  }
+
   render() {
     let currentlyVisableState = null;
     let buttonText = null;
-    if (this.state.selectedJersey !== null) {
+
+    if (this.state.editing) {
+      currentlyVisableState = 
+        <EditJerseyForm 
+          jersey={this.state.selectedJersey}
+          onEditJersey={this.handleEditingJerseyInList} />
+          buttonText = "Return to Jerseys List";
+    } else if (this.state.selectedJersey !== null) {
       currentlyVisableState = 
         <JerseyDetail
-          jersey={this.state.selectedJersey} />
+          jersey={this.state.selectedJersey} 
+          onClickingEdit={this.handleEditClick} />
           buttonText = "Return to Jerseys List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisableState = <NewJerseyForm onNewJerseyCreation={this.handleAddingNewJerseyToList}/>;
@@ -56,8 +81,11 @@ class JerseyControl extends React.Component {
     }
     return (
       <React.Fragment>
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <div id="display">
         {currentlyVisableState}
+        <button onClick={this.handleClick}>{buttonText}</button>
+        </div>
+        
       </React.Fragment>
     )
 

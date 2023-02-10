@@ -1,25 +1,14 @@
 import React from "react";
 import { v4 } from 'uuid';
 import PropTypes from "prop-types";
+import ReusableForm from "./ReusableForm";
 
 function NewJerseyForm(props) {
   return (
     <React.Fragment>
-        <form onSubmit={handleNewJerseyFormSubmission}>
-        <input
-          type='text'
-          name='name'
-          placeholder='Jersey Name' />
-        <input
-          type='number'
-          name='price'
-          placeholder='Jersey Price' />
-        <input
-          name='quantity'
-          placeholder='Jersey Quantity' />
-        <button type='submit'>Add!</button>
-      </form>
-
+        <ReusableForm 
+        formSubmissionHandler={handleNewJerseyFormSubmission}
+        buttonText="Add Jersey!" />
     </React.Fragment>
   );
 
@@ -28,7 +17,8 @@ function NewJerseyForm(props) {
     props.onNewJerseyCreation({
       name: event.target.name.value, 
       price: event.target.price.value, 
-      quantity: event.target.quantity.value, 
+      date: event.target.date.value,
+      quantity: event.target.quantity.value,
       id: v4()
     });
   }
