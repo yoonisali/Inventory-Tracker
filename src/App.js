@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './Header';
-import Jerseys from './Jerseys';
+import JerseyControl from './JerseyControl';
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Jerseys />
+      <JerseyControl/>
     </React.Fragment>
-  );
+  )
 }
 
 export default App;

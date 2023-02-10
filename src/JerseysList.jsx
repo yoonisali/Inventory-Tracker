@@ -1,16 +1,16 @@
 import React from "react";
-import Jerseys from "./Jerseys";
+import Jersey from "./Jersey";
 import PropTypes from "prop-types";
 
-function JerseysList () {
+function JerseysList (props) {
   return (
     <React.Fragment>
-      <div id="jerseys-list">
-      {props.jerseysList.map((jerseys) => 
-        <Item name={jerseys.name}
-          price={jerseys.price}
-          quantity={jerseys.quantity}
-          id={jerseys.id} />
+      <div id="jersey-list">
+      {props.jerseyList.map((jersey) => 
+        <Jersey name={jersey.name}
+          price={jersey.price}
+          quantity={jersey.quantity}
+          id={jersey.id} />
       )}
       </div>
 
@@ -18,8 +18,8 @@ function JerseysList () {
   )
 }
 
-JerseysList.PropTypes = {
-  jerseysList: PropTypes.array
+JerseysList.propTypes = {
+  jerseyList: PropTypes.array
 }
 
 export default JerseysList;

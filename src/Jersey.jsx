@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Jerseys (props) {
+function Jersey (props) {
   return (
     <React.Fragment>
-      <div id="jerseys">
-        <h4>Jersey Name: {props.name}</h4>
-        <h4>Jersey Price: ${props.price}</h4>
+      <div id="jersey">
+        <h4>Name: {props.name}</h4>
+        <h4>Price: ${props.price}</h4>
       </div>
 
 
@@ -14,9 +14,9 @@ function Jerseys (props) {
   )
 }
 
-Jerseys.propTypes = {
+Jersey.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number
 }
 
-export default Jerseys;
+export default Jersey;
